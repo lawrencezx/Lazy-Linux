@@ -1,12 +1,16 @@
 #!/bin/bash
+# Author: zouxu
 
 . ./log.sh
 
+# macros
+ll_install='sudo apt-get -y install'
+
 # head
-print_head
+ll_print_head
 
 # update & upgrade
-print_term "Update and upgrade"
+ll_print_term "Update and upgrade"
 
 echo "Replace source \"http://cn.archive.ubuntu.com/ubuntu/\""
 while true; do
@@ -24,7 +28,7 @@ while true; do
   elif [ ${isSet}x == 'n'x ]; then
     break
   else
-    print_error "invalid input"
+    ll_print_error "invalid input"
     continue 
   fi
 done
@@ -45,7 +49,7 @@ while true; do
   elif [ ${isSet}x == 'n'x ]; then
     break
   else
-    print_error "invalid input"
+    ll_print_error "invalid input"
     continue 
   fi
 done
@@ -54,21 +58,35 @@ sudo apt-get update
 sudo apt-get upgrade
 
 # tools
-print_term "install aptitude"
-sudo apt-get -y install aptitude
-print_term "install vim"
-sudo apt-get -y install vim
-print_term "install neovim"
-sudo apt-get -y install neovim
-print_term "install tig"
-sudo apt-get -y install tig
-print_term "install zsh"
-sudo apt-get -y install zsh
-print_term "install curl"
-sudo apt-get -y install curl
-print_term "install oh-my-zsh"
+ll_print_term "install aptitude"
+${ll_install} aptitude
+
+ll_print_term "install python3"
+${ll_install} python3
+
+ll_print_term "install python2"
+${ll_install} python2
+
+ll_print_term "install vim"
+${ll_install} vim
+
+ll_print_term "install neovim"
+${ll_install} neovim
+
+ll_print_term "install tig"
+${ll_install} tig
+
+ll_print_term "install zsh"
+${ll_install} zsh
+
+ll_print_term "install curl"
+${ll_install} curl
+
+ll_print_term "install oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-print_term "install autojump"
-sudo apt-get install autojump
-print_term "install spacevim"
+
+ll_print_term "install autojump"
+${ll_install} autojump
+
+ll_print_term "install spacevim"
 curl -sLf https://spacevim.org/install.sh | bash
