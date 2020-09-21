@@ -54,6 +54,8 @@ sudo apt-get update
 sudo apt-get upgrade
 
 # tools
+print_term "install aptitude"
+sudo apt-get -y install aptitude
 print_term "install vim"
 sudo apt-get -y install vim
 print_term "install neovim"
