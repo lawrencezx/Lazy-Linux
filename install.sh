@@ -85,8 +85,14 @@ ${ll_install} curl
 ll_print_term "install oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+ll_print_term "configure zsh"
+echo "\n# configured by Lazy linux\n" >> ~/.zshrc
+cat ./zsh.conf >> ~/.zshrc
+
 ll_print_term "install autojump"
 ${ll_install} autojump
+echo "source /usr/share/autojump/autojump.zsh" >> ~/.zshrc
+echo "autoload -U compinit && compinit\n" >> ~/.zshrc
 
 ll_print_term "install spacevim"
 curl -sLf https://spacevim.org/install.sh | bash
@@ -112,4 +118,10 @@ if [ ${sougou}x == 'y'x ]||[ ${sougou}x == 'Y'x ]; then
     rm ${sougouDeb}
     ll_print_message "1. Add sogoupinyin input method in fcitxConfiguration. \n2. Install chinese language package in Language Support"
   fi
+fi
+
+# reboot
+read -p "reboot now(Y/n):" ifreboot
+if [ ${ifreboot}x == 'y'x ]||[ ${ifreboot}x == 'Y'x ]; then
+  reboot
 fi
