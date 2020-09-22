@@ -97,6 +97,15 @@ echo "autoload -U compinit && compinit\n" >> ~/.zshrc
 ll_print_term "install spacevim"
 curl -sLf https://spacevim.org/install.sh | bash
 
+# deepin tools
+read -p "install deepin tools(Y/n):" ifdeepin
+if [ ${ifdeepin}x == 'y'x ]||[ ${ifdeepin}x == 'Y'x ]; then
+  ll_print_term "install deepin-terminal deepin-screenshot"
+  ${ll_install} deepin-terminal
+  sudo mv /usr/bin/deepin-terminal /usr/bin/gnome-terminal
+  ${ll_install} deepin-screenshot
+fi
+
 # sougou input method
 read -p "install sougou input method(Y/n):" sougou
 if [ ${sougou}x == 'y'x ]||[ ${sougou}x == 'Y'x ]; then
