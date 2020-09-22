@@ -108,6 +108,8 @@ git clone https://github.com.cnpmjs.org/SpaceVim/SpaceVim ~/.Spacevim
 curl -sLf https://spacevim.org/install.sh | bash
 
 ll_print_term "build spacevim environment"
+${ll_install} fonts-powerline
+ll_print_message "please set terminal font to xxxpowerline"
 ${ll_install} gem
 ${ll_install} ruby ruby-dev
 ${ll_install} build-essential
