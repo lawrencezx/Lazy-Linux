@@ -17,3 +17,7 @@ ll_print_term() {
 ll_print_error() {
   printf "\033[31m%s\n\033[0m" "error: ${1}"
 }
+
+ll_print_message() {
+  printf "\033[32m%s\n\033[0m" "Note: ${1}"
+}

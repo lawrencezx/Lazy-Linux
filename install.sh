@@ -90,3 +90,26 @@ ${ll_install} autojump
 
 ll_print_term "install spacevim"
 curl -sLf https://spacevim.org/install.sh | bash
+
+# sougou input method
+read -p "install sougou input method(Y/n):" sougou
+if [ ${sougou}x == 'y'x ]||[ ${sougou}x == 'Y'x ]; then
+  ll_print_term "install fcitx"
+  sudo apt-get --fix-broken -y install
+  ${ll_install} fcitx-bin
+  ${ll_install} fcitx-table
+  
+  sougouDeb="sogoupinyin_2.3.2.07_amd64-831.deb"
+  ll_print_term "install ${sougouDeb}"
+  if [ ! -f ${sougouDeb} ]; then
+    url="http://cdn2.ime.sogou.com/dl/index/1599192613/${sougouDeb}?st=sfJbMK7gsnHe7lKbeyCUzw&e=1600700152&fn=${sougouDeb}"
+    curl ${url} -o ${sougouDeb}
+  fi
+  if [ ! -f ${sougouDeb} ]; then
+    ll_print_error "Download ${sougouDeb} failed! (Sogoupinyin version is too old or internet is not connected)"
+  else
+    sudo dpkg -i ${sougouDeb}
+    rm ${sougouDeb}
+    ll_print_message "1. Add sogoupinyin input method in fcitxConfiguration. \n2. Install chinese language package in Language Support"
+  fi
+fi
