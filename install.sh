@@ -57,30 +57,38 @@ done
 sudo apt-get update
 sudo apt-get upgrade
 
-# tools
+# common tools
 ll_print_term "install aptitude"
 ${ll_install} aptitude
 
-ll_print_term "install python3"
-${ll_install} python3
+ll_print_term "install curl"
+${ll_install} curl
 
-ll_print_term "install python2"
+ll_print_term "cloc"
+${ll_install} cloc
+
+ll_print_term "install python2/3 pip2/3"
 ${ll_install} python2
+${ll_install} python3
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+sudo python2 get-pip.py
+sudo python3 get-pip.py
+rm get-pip.py
 
+# editor
 ll_print_term "install vim"
 ${ll_install} vim
 
 ll_print_term "install neovim"
 ${ll_install} neovim
 
+# git tools
 ll_print_term "install tig"
 ${ll_install} tig
 
+# shell tools
 ll_print_term "install zsh"
 ${ll_install} zsh
-
-ll_print_term "install curl"
-${ll_install} curl
 
 ll_print_term "install oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -94,8 +102,28 @@ ${ll_install} autojump
 echo "source /usr/share/autojump/autojump.zsh" >> ~/.zshrc
 echo "autoload -U compinit && compinit\n" >> ~/.zshrc
 
+# spacevim
 ll_print_term "install spacevim"
 curl -sLf https://spacevim.org/install.sh | bash
+
+ll_print_term "build spacevim environment"
+${ll_install} gem
+${ll_install} ruby ruby-dev
+${ll_install} build-essential
+sudo gem install neovim
+${ll_install} nodejs
+${ll_install} npm
+sudo npm install -g neovim
+sudo pip2 install --upgrade neovim
+sudo pip2 install --user --upgrade neovim
+sudo pip2 install --upgrade pynvim
+sudo pip2 install --user --upgrade pynvim
+sudo pip2 install --upgrade msgpack
+sudo pip3 install --upgrade neovim
+sudo pip3 install --user --upgrade neovim
+sudo pip3 install --upgrade pynvim
+sudo pip3 install --user --upgrade pynvim
+sudo pip3 install --upgrade msgpack
 
 # deepin tools
 read -p "install deepin tools(Y/n):" ifdeepin
