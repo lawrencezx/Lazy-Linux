@@ -104,6 +104,7 @@ echo "autoload -U compinit && compinit\n" >> ~/.zshrc
 
 # spacevim
 ll_print_term "install spacevim"
+git clone https://github.com.cnpmjs.org/SpaceVim/SpaceVim ~/.Spacevim
 curl -sLf https://spacevim.org/install.sh | bash
 
 ll_print_term "build spacevim environment"
