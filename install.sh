@@ -108,12 +108,11 @@ git clone https://github.com.cnpmjs.org/SpaceVim/SpaceVim ~/.Spacevim
 curl -sLf https://spacevim.org/install.sh | bash
 
 ll_print_term "build spacevim environment"
-${ll_install} fonts-powerline
-ll_print_message "please set terminal font to xxxpowerline"
 ${ll_install} gem
 ${ll_install} ruby ruby-dev
 ${ll_install} build-essential
 sudo gem install neovim
+sudo gem update msgpack
 ${ll_install} nodejs
 ${ll_install} npm
 sudo npm install -g neovim
@@ -127,6 +126,12 @@ sudo pip3 install --user --upgrade neovim
 sudo pip3 install --upgrade pynvim
 sudo pip3 install --user --upgrade pynvim
 sudo pip3 install --upgrade msgpack
+
+ll_print_term "install powerline fonts"
+git clone https://github.com/powerline/fonts.git --depth=1
+./fonts/install.sh
+rm -rf fonts
+ll_print_message "please set terminal font to xxxpowerline"
 
 # deepin tools
 read -p "install deepin tools(Y/n):" ifdeepin
