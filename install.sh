@@ -126,6 +126,7 @@ sudo pip3 install --user --upgrade neovim
 sudo pip3 install --upgrade pynvim
 sudo pip3 install --user --upgrade pynvim
 sudo pip3 install --upgrade msgpack
+cp -rf ./.SpaceVim.d ~/.SpaceVim.d
 
 ll_print_term "install powerline fonts"
 git clone https://github.com/powerline/fonts.git --depth=1
