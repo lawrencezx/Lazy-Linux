@@ -58,14 +58,8 @@ sudo apt-get update
 sudo apt-get upgrade
 
 # common tools
-ll_print_term "install aptitude"
-${ll_install} aptitude
-
-ll_print_term "install curl"
-${ll_install} curl
-
-ll_print_term "cloc"
-${ll_install} cloc
+ll_print_term "install aptitude curl cloc cmake"
+${ll_install} aptitude curl cloc cmake
 
 ll_print_term "install python2/3 pip2/3"
 ${ll_install} python2
