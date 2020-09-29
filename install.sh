@@ -58,16 +58,17 @@ sudo apt-get update
 sudo apt-get upgrade
 
 # common tools
-ll_print_term "install aptitude curl cloc cmake"
+ll_print_term "install aptitude curl cloc cmake python2/3 pip2/3"
 ${ll_install} aptitude curl cloc cmake
-
-ll_print_term "install python2/3 pip2/3"
-${ll_install} python2
-${ll_install} python3
+${ll_install} python2 python3
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 sudo python2 get-pip.py
 sudo python3 get-pip.py
 rm get-pip.py
+
+# libraries
+ll_print_term "install libraries: gcc-multilab,g++-multilib"
+${ll_install} gcc-multilib g++-multilib   # 64-bits platform 32-bits program cross-compiling libraries
 
 # editor
 ll_print_term "install vim"
