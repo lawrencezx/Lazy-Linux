@@ -28,16 +28,17 @@
     # Enable vim compatible mode, avoid changing origin vim key bindings
     vimcompatible = true
 
-    autocomplete_method = "neocomplcache"
-
     bootstrap_before = 'myspacevim#before'
     bootstrap_after = 'myspacevim#after'
 
 # Enable autocomplete layer
-#[[layers]]
-#name = 'autocomplete'
-#auto_completion_return_key_behavior = "complete"
-#auto_completion_tab_key_behavior = "cycle"
+[[layers]]
+name = 'autocomplete'
+auto_completion_return_key_behavior = "nil"
+auto_completion_tab_key_behavior = "smart"
+auto_completion_delay = 200
+auto_completion_complete_with_key_sequence = "nil"
+auto_completion_complete_with_key_sequence_delay = 0.1
 
 [[layers]]
 name = 'shell'
@@ -52,10 +53,3 @@ name = "VersionControl"
 
 [[layers]]
 name = "lang#c"
-clang_executable = "/usr/bin/clang"
-
-[[layers]]
-name = "edit"
-
-[[layers]]
-name = "ui"
