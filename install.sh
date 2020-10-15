@@ -70,18 +70,15 @@ rm get-pip.py
 ll_print_term "install libraries: gcc-multilab,g++-multilib"
 ${ll_install} gcc-multilib g++-multilib   # 64-bits platform 32-bits program cross-compiling libraries
 
-# editor
-ll_print_term "install vim"
-${ll_install} vim
+# vim/git/typora
+ll_print_term "install vim neovim tig git"
+${ll_install} vim neovim tig git
+sudo wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
+sudo add-apt-repository 'deb https://typora.io/linux ./'
+sudo apt-get update
+${ll_install} typora
 
-ll_print_term "install neovim"
-${ll_install} neovim
-
-# git tools
-ll_print_term "install tig"
-${ll_install} tig
-
-# shell tools
+# shell tools zsh/oh-my-zsh/autojump
 ll_print_term "install zsh"
 ${ll_install} zsh
 
