@@ -67,8 +67,9 @@ sudo python3 get-pip.py
 rm get-pip.py
 
 # libraries
-ll_print_term "install libraries: gcc-multilab,g++-multilib"
+ll_print_term "install libraries: gcc-multilab,g++-multilib libsdl2-dev"
 ${ll_install} gcc-multilib g++-multilib   # 64-bits platform 32-bits program cross-compiling libraries
+${ll_install} libsdl2-dev # support QEMU sdl
 
 # vim/git/typora
 ll_print_term "install vim neovim tig git"
