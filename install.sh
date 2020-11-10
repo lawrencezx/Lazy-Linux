@@ -58,8 +58,8 @@ sudo apt-get update
 sudo apt-get upgrade
 
 # common tools
-ll_print_term "install aptitude curl cloc tree cmake python2/3 pip2/3"
-${ll_install} aptitude curl cloc tree cmake
+ll_print_term "install aptitude curl cloc tree cmake net-tools python2/3 pip2/3"
+${ll_install} aptitude curl cloc tree cmake net-tools
 ${ll_install} python2 python3
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 sudo python2 get-pip.py
